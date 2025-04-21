@@ -25,7 +25,7 @@ where rs.return_date is null and (current_date - i.issued_date) > 30
 order by 1
 
 --Task 14. Branch Performance Report
---Create a query that generates a performance report for each brancg, showing 
+--Create a query that generates a performance report for each branch, showing 
 --The Number of Books issued, the number of books returned, and the total revenue generated from book rentals.
 
 create table branch_reports
@@ -44,15 +44,15 @@ select * from branch_reports;
 --Task 15. Create a Table of Active Members
 --Use the create table as statement to create a new table active_members containing members who have issued at least one book in the last 2 months.
 
-create table active_members
+Create table active_members
 as
-select * from members
+Select * from members
 where member_id in (select distinct issued_member_id
                     from issued_status
 					where issued_date >= current_date - interval '2 Month');
 
 --Task 16. Find Employees with the Most Book Issues Processed
---Write Query to find the top 3 employees who have processed the most book issues.
+--Write a Query to find the top 3 employees who have processed the most book issues.
 --Display the employee name, number of books processed, and thier branch
 
 select e.emp_name, b.*, count(ist.issued_id) as no_book_issued
